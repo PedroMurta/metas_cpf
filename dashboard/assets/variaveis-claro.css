@@ -93,7 +93,7 @@
     /* Dimensões estruturais */
     --header-height: 52px;
     --sidebar-width: 240px;
-    --container-max: 1200px;
+    --container-max: 1860px;
     --kpi-min-height: 120px;
 
     /* Gráficos (ECharts) — derivados da paleta, nunca inventar cores */

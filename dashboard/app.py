@@ -1,10 +1,10 @@
 import streamlit as st
-from tabs import crescimento, fracionamento, base_clientes, diagnostico, proposta, introducao
+from interface import aplicar_tema, cabecalho, rodape
+from tabs import base_clientes, crescimento, diagnostico, introducao, metodologia
 
-
-
-st.set_page_config(page_title="Proposta de meta de clientes 2027", layout="wide")
-st.title("Proposta de meta de clientes atendidos (CPF) — ciclo 2027")
+st.set_page_config(page_title="Meta de CPFs distintos", layout="wide")
+aplicar_tema()
+cabecalho("Meta de CPFs distintos", "Proposta · SEST · Agenda de saúde", "GEPLANE")
 st.caption("Pessoas atendidas por ano (cada CPF conta uma vez por unidade). SEST e SENAT são contados separadamente. "
            "Fonte: SIGOP, 2019 a 2025 e janeiro a setembro de 2026.")
 
@@ -21,18 +21,17 @@ with st.expander("Glossário: o que significa cada termo"):
 - **Novo, retido e reativado:** novo = atendido pela primeira vez; retido = também foi atendido no ano anterior;
   reativado = voltou depois de pelo menos um ano sem vir.
 - **Retenção:** % de quem foi atendido em um ano e voltou no ano seguinte.
-- **Registro repetido no mesmo dia:** 2º, 3º... atendimento da mesma pessoa, no mesmo dia, unidade e especialidade.
 - **Ponto percentual (p.p.):** diferença entre dois percentuais. Passar de 10% para 15% é uma alta de 5 p.p.
 - **Meta de atendimentos (pactuada):** a meta de produção já combinada com cada unidade.
+- **Grupo de porte:** unidades com volume de produção parecido. Cada unidade só é comparada com as do seu grupo.
+- **Referência:** em cada área, o menor nível de atendimentos por pessoa do grupo, desconsiderando os casos extremos.
 - **RAIS:** cadastro oficial dos empregos com carteira assinada. Serve para estimar quantos trabalhadores do transporte
   existem na região de cada unidade (autônomos não entram).
 """)
 
-
-
 ABAS = {"Introdução": introducao, "Diagnóstico e plano": diagnostico, "Crescimento de clientes": crescimento,
-        "Base de clientes": base_clientes, "Proposta": proposta,
-        "Registros repetidos (detalhe)": fracionamento}
+        "Base de clientes": base_clientes, "Metodologia": metodologia}
 for aba, modulo in zip(st.tabs(list(ABAS)), ABAS.values()):
     with aba:
         modulo.render()
+

@@ -68,6 +68,13 @@ def carregar_fr() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     return fu, fp, fc
 
 
+@st.cache_data
+def carregar_fu() -> pd.DataFrame:
+    """Registros repetidos por unidade × ano (só agregados), com nome/conselho da unidade."""
+    fu = pd.read_parquet(DADOS / "fr_unidade_ano.parquet").merge(carregar()[2], on="id_unidade", how="left")
+    return fu.assign(ex_total=fu[list(PADROES)].sum(axis=1))
+
+
 def por_unidade(fu: pd.DataFrame, esp: str, ano: int, ref: int, min_atend: int = 1000) -> pd.DataFrame:
     """% de extras por padrão no ano e variação (p.p.) do total sobre o próprio ano de comparação da unidade."""
     f = fu[(fu.especialidade == esp) & (fu.atend >= min_atend)]
@@ -175,8 +182,7 @@ def carregar_agenda_ano() -> pd.DataFrame:
 # ---- Proposta de meta ----------------------------------------------------------------------------------------------
 # A meta é calculada no notebook (notebooks/meta_cpf.ipynb, regra em metodologia.py) e lida aqui pronta.
 AREAS = ["Odontologia", "Fisioterapia", "Nutrição", "Psicologia"]
-ANT = DADOS.parents[1] / "meta_cpfs_unicos" / "dados"
-MERC = DADOS.parents[2] / "geprom" / "mercado_potencial_palestras_2027" / "dados"
+ANT = MERC = DADOS          # deploy: insumos externos ficam em dados/
 FAIXAS_APC = ["caiu >10%", "estável (±10%)", "subiu >10%"]
 FAIXAS_MERC = ["até 10%", "10–20%", "20–40%", "acima de 40%"]
 

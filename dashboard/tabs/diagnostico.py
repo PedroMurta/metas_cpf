@@ -3,7 +3,7 @@ import pandas as pd
 import streamlit as st
 from charts.plots import CINZA, CORES_NEGOCIO, fig_barras_anonimas, fig_empilhado_v, fig_linhas_destaque, titulo
 from charts.theme import PLOTLY_CONFIG, fmt_number
-from data import DADOS, carregar_agenda_ano, carregar_base, carregar_fr, salto_proprio, serie_base
+from data import DADOS, carregar_agenda_ano, carregar_base, carregar_fu, salto_proprio, serie_base
 from tabs.base_clientes import _balanco, _conversao
 
 DESTAQUE = CORES_NEGOCIO["SEST"]
@@ -79,7 +79,7 @@ def render():
         st.warning(f"Rode a extração antes: {', '.join(faltam)} (extract.run).")
         return
     rt, bu, cc = carregar_base()
-    fu = carregar_fr()[0]
+    fu = carregar_fu()
     ano = int(rt.ano.max())
     st.markdown("**Os atendimentos crescem mais rápido que o número de pessoas que se tornam clientes.** Parte do "
                 "crescimento vem de registrar mais atendimentos para a mesma pessoa e de contatos rápidos (Campanha e "
