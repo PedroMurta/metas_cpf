@@ -1,0 +1,114 @@
+/* =================================================================
+   SEST SENAT — Design Tokens — Tema Claro
+   ================================================================= */
+:root {
+    /* Navy (header/rodapé) */
+    --navy-deep:    #0b1929;
+    --navy-base:    #0f2540;
+
+    /* Fundo claro */
+    --bg-body:      #f0f2f5;
+    --bg-surface:   #ffffff;
+    --bg-sidebar:   #f7f8fa;
+    --bg-card:      #ffffff;
+    --bg-input:     #f4f5f7;
+
+    /* Cyan */
+    --cyan:         #0095cc;
+    --cyan-vivid:   #00b8e6;
+    --cyan-dim:     rgba(0, 149, 204, 0.5);
+    --cyan-glow:    rgba(0, 149, 204, 0.12);
+    --cyan-subtle:  rgba(0, 149, 204, 0.06);
+
+    /* Texto */
+    --text-primary:   #1a2332;
+    --text-secondary: #5a6a7e;
+    --text-muted:     #94a3b8;
+
+    /* Bordas */
+    --border:       #e2e6ec;
+    --border-cyan:  rgba(0, 149, 204, 0.35);
+
+    /* Cores semânticas */
+    --success:      #1a9e6e;
+    --success-bg:   rgba(26, 158, 110, 0.10);
+    --warning:      #c98a1e;
+    --warning-bg:   rgba(201, 138, 30, 0.10);
+    --danger:       #c94040;
+    --danger-bg:    rgba(201, 64, 64, 0.10);
+    --info:         var(--cyan);
+    --info-bg:      var(--cyan-glow);
+
+    /* Fontes */
+    --font-title:   'Barlow Condensed', 'Arial Narrow', system-ui, sans-serif;
+    --font-section: 'vinila', 'Inter', system-ui, sans-serif;
+    --font-body:    'Inter', system-ui, -apple-system, sans-serif;
+
+    /* Escala tipográfica */
+    --fs-hero:    clamp(36px, 4vw, 56px);   /* título de página */
+    --fs-section: clamp(26px, 3vw, 38px);   /* título de seção */
+    --fs-title:   14px;                      /* título de card */
+    --fs-kpi:     22px;                      /* valor de KPI */
+    --fs-number:  36px;                      /* número grande */
+    --fs-body:    13px;                      /* corpo */
+    --fs-tag:     10px;                      /* tag de seção */
+    --fs-label:   9px;                       /* labels / micro */
+
+    /* Espaçamento (escala base 4px) */
+    --sp-1:  4px;
+    --sp-2:  8px;
+    --sp-3:  12px;
+    --sp-4:  16px;
+    --sp-5:  20px;
+    --sp-6:  24px;
+    --sp-7:  28px;
+    --sp-8:  32px;
+    --sp-10: 40px;
+    --sp-14: 56px;
+
+    /* Raio (identidade técnica: nunca > 4px) */
+    --radius-0: 0;
+    --radius-1: 2px;
+    --radius-2: 4px;
+
+    /* Sombras (sempre leves) */
+    --shadow-1: 0 1px 3px rgba(0, 0, 0, 0.04);
+    --shadow-2: 0 2px 8px rgba(0, 0, 0, 0.06);
+    --shadow-focus: 0 0 0 3px var(--cyan-glow);
+
+    /* Transições — container SUTIL; animação principal fica nos dados */
+    --transition-fast: 0.25s ease;
+    --transition-base: 0.45s ease;
+    --transition-entry: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+
+    /* Z-index */
+    --z-base:     0;
+    --z-fixed:    90;    /* sidebar de navegação fixa, guias, filtros sticky */
+    --z-sticky:   100;   /* header sticky */
+    --z-dropdown: 200;
+    --z-drawer:   300;
+    --z-modal:    400;
+    --z-toast:    500;
+
+    /* Dimensões estruturais */
+    --header-height: 52px;
+    --sidebar-width: 240px;
+    --container-max: 1200px;
+    --kpi-min-height: 120px;
+
+    /* Gráficos (ECharts) — derivados da paleta, nunca inventar cores */
+    --chart-series-1: #0095cc;                 /* cyan — série principal */
+    --chart-series-2: #0f2540;                 /* navy-base */
+    --chart-series-3: #00b8e6;                 /* cyan-vivid */
+    --chart-series-4: #5a6a7e;                 /* text-secondary */
+    --chart-series-5: #1a3d6d;                 /* navy-light */
+    --chart-series-6: #94a3b8;                 /* text-muted */
+    --chart-bg:        transparent;
+    --chart-text:      #1a2332;                /* text-primary */
+    --chart-text-muted: #94a3b8;               /* text-muted */
+    --chart-axis:      #5a6a7e;                /* text-secondary */
+    --chart-grid:      #e2e6ec;                /* border */
+    --chart-tooltip-bg: #0b1929;               /* navy-deep */
+    --chart-tooltip-text: #eaf0f8;
+    --chart-area-opacity: 0.12;
+}
